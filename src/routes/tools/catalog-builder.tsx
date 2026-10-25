@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { LayoutGrid } from "lucide-react";
-import { ToolPage } from "@/components/tool-page";
+import { CatalogBuilder } from "@/components/catalog-builder";
 
 export const Route = createFileRoute("/tools/catalog-builder")({
   head: () => ({
@@ -13,18 +12,5 @@ export const Route = createFileRoute("/tools/catalog-builder")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => (
-    <ToolPage
-      icon={LayoutGrid}
-      title="GBP Services & Products Catalog Builder"
-      tagline="Module 03 · Coming soon"
-      description="Build complete product and service catalogs in bulk, structured the way Google Business Profile expects."
-      upcoming={[
-        "Import a price list or inventory sheet and generate full listings",
-        "Descriptions written to GBP field limits, ready to paste",
-        "Collection grouping so related services publish together",
-        "Export as CSV or direct copy blocks per item",
-      ]}
-    />
-  ),
+  component: CatalogBuilder,
 });
