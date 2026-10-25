@@ -11,3 +11,4 @@
 
 - Keep the workspace shell in the root layout around the dashboard and existing tool URLs so navigation remains mounted between pages without changing public URLs.
 - Keep the five module definitions in a shared browser-safe registry so dashboard cards and sidebar links remain consistent.
+- Share theme state through a root-level provider and semantic CSS tokens; restore the browser preference after hydration so every page stays consistent without SSR mismatches.
