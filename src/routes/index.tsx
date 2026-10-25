@@ -28,10 +28,10 @@ export const Route = createFileRoute("/")({
 const STORAGE_KEY = "jil_gemini_api_key";
 
 const features = [
-  { icon: FileText, title: "Yoast Meta Generator", desc: "SEO titles and meta descriptions, ready to paste." },
-  { icon: MessageSquareReply, title: "Review Responder", desc: "On-brand replies to every Google review." },
-  { icon: LayoutGrid, title: "Catalog Builder", desc: "Product and service listings in bulk." },
-  { icon: CalendarDays, title: "12-Week GBP Calendar", desc: "A quarter of Business Profile posts, planned." },
+  { icon: FileText, title: "Yoast Meta Generator", desc: "SEO titles and meta descriptions, ready to paste.", to: "/tools/yoast-meta-generator" },
+  { icon: MessageSquareReply, title: "Review Responder", desc: "On-brand replies to every Google review.", to: "/tools/review-responder" },
+  { icon: LayoutGrid, title: "Catalog Builder", desc: "Product and service listings in bulk.", to: "/tools/catalog-builder" },
+  { icon: CalendarDays, title: "12-Week GBP Calendar", desc: "A quarter of Business Profile posts, planned.", to: "/tools/gbp-calendar" },
 ];
 
 function ApiKeyDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (o: boolean) => void }) {
@@ -91,8 +91,8 @@ function Index() {
         </section>
 
         <section className="grid gap-4 pb-24 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="glass group rounded-2xl p-6 transition-colors hover:border-primary/50">
+          {features.map(({ icon: Icon, title, desc, to }) => (
+            <Link key={title} to={to} className="glass group rounded-2xl p-6 transition-colors hover:border-primary/50">
               <div className="mb-4 flex items-center justify-between">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/15 text-primary-glow">
                   <Icon className="h-5 w-5" />
@@ -101,7 +101,7 @@ function Index() {
               </div>
               <h3 className="font-semibold">{title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
-            </div>
+            </Link>
           ))}
         </section>
       </main>
