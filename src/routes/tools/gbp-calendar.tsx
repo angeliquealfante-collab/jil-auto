@@ -9,13 +9,15 @@ export const Route = createFileRoute("/tools/gbp-calendar")({
       { name: "description", content: "A full quarter of Google Business Profile posts, planned in minutes." },
       { property: "og:title", content: "12-Week GBP Calendar — JIL" },
       { property: "og:description", content: "A full quarter of Google Business Profile posts, planned in minutes." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => (
     <ToolPage
       icon={CalendarDays}
-      title="12-Week GBP Calendar"
-      tagline="Coming soon"
+      title="12-Week GBP Content Calendar Generator"
+      tagline="Module 04 · Coming soon"
       description="Plan a full quarter of Google Business Profile posts from one input — no blank-page Monday mornings."
       upcoming={[
         "Generate a 12-week posting schedule from the client's services and offers",

@@ -20,6 +20,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Turn repetitive, manual local SEO tasks into single-click AI workflows." },
       { property: "og:title", content: "JIL — Automate Your Agency's Local SEO" },
       { property: "og:description", content: "Turn repetitive, manual local SEO tasks into single-click AI workflows." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -85,8 +87,8 @@ function Index() {
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
             Turn repetitive, manual tasks into single-click AI workflows.
           </p>
-          <Button size="lg" className="glow mt-10 h-12 rounded-full px-8 text-base transition-transform hover:scale-105">
-            Launch Workspace <ArrowRight />
+          <Button asChild size="lg" className="glow mt-10 h-12 rounded-full px-8 text-base transition-transform hover:scale-105">
+            <Link to="/workspace">Launch Workspace <ArrowRight /></Link>
           </Button>
         </section>
 
