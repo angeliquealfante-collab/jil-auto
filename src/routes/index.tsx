@@ -53,7 +53,7 @@ function ApiKeyDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (o:
       <DialogContent className="glass">
         <DialogHeader>
           <DialogTitle>Gemini API Key</DialogTitle>
-          <DialogDescription>Stored only in this browser's local storage.</DialogDescription>
+          <DialogDescription>Saved in this browser, not encrypted. Sent directly to Google when generating. Use a restricted key on a trusted device.</DialogDescription>
         </DialogHeader>
         <Input type="password" placeholder="AIza..." value={key} onChange={(e) => setKey(e.target.value)} />
         <DialogFooter>
