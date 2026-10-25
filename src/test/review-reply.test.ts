@@ -23,7 +23,9 @@ describe("Review reply rules", () => {
     const lowRating = { ...inputs, rating: 1, tone: reviewTones[2] };
     const reply = await generateReviewReply(lowRating, "test-key-not-real");
     expect(reply).toBe("Thank you for choosing City Plumbing in Singapore!");
-    const [url, request] = fetchMock.mock.calls[0];
+    const call = fetchMock.mock.calls[0];
+    if (!call) throw new Error("Expected a Gemini request");
+    const [url, request] = call;
     expect(url).toBe("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent");
     expect(request.headers["x-goog-api-key"]).toBe("test-key-not-real");
     const prompt = JSON.parse(request.body).contents[0].parts[0].text;
