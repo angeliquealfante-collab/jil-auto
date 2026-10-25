@@ -17,7 +17,7 @@ export function ApiKeyDialog({ open, onOpenChange }: { open: boolean; onOpenChan
   }
   return <Dialog open={open} onOpenChange={onOpenChange}>
     <DialogContent className="glass">
-      <DialogHeader><DialogTitle>Gemini API Key</DialogTitle><DialogDescription>Stored only in this browser's local storage.</DialogDescription></DialogHeader>
+      <DialogHeader><DialogTitle>Gemini API Key</DialogTitle><DialogDescription>Saved in this browser, not encrypted. Sent directly to Google when generating. Use a restricted key on a trusted device.</DialogDescription></DialogHeader>
       <Input aria-label="Gemini API Key" type="password" placeholder="AIza..." value={key} onChange={(event) => setKey(event.target.value)} />
       <DialogFooter><Button onClick={save} className="glow">Save key</Button></DialogFooter>
     </DialogContent>

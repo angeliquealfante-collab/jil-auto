@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FileText } from "lucide-react";
-import { ToolPage } from "@/components/tool-page";
+import { SeoMetaEngine } from "@/components/seo-meta-engine";
 
 export const Route = createFileRoute("/tools/yoast-meta-generator")({
   head: () => ({
@@ -13,18 +12,5 @@ export const Route = createFileRoute("/tools/yoast-meta-generator")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => (
-    <ToolPage
-      icon={FileText}
-      title="SEO Meta Description & Title Engine"
-      tagline="Module 01 · Yoast Optimized · Coming soon"
-      description="Generate SEO titles and meta descriptions that fit Yoast's length limits, page by page or in bulk."
-      upcoming={[
-        "Paste a page URL or content and get title + description drafts instantly",
-        "Live character counts matching Yoast's SERP preview limits",
-        "Bulk mode: generate metas for an entire sitemap at once",
-        "One-click copy, formatted for direct paste into Yoast fields",
-      ]}
-    />
-  ),
+  component: SeoMetaEngine,
 });
