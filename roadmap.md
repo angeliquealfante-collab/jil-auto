@@ -21,7 +21,7 @@
 - [ ] Verify live catalog generation once a valid Gemini API key is connected (no real key available for testing).
 
 # Content calendar
-- [ ] Add inputs and twelve-week generation with deterministic Monday scheduling.
-- [ ] Add editable table, CSV export, and full-calendar copying.
-- [ ] Test rotation, dates, post lengths and exports; verify with simulated Google responses.
+- [x] Add inputs and twelve-week generation with deterministic Monday scheduling.
+- [x] Add editable table, CSV export, and full-calendar copying.
+- [x] Test rotation, dates, post lengths and exports; verify with simulated Google responses.
 - [ ] Verify live calendar generation once a valid Gemini API key is connected (no real key available for testing).
