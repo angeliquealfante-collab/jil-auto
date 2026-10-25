@@ -15,7 +15,7 @@
 - [ ] Verify live review generation once a valid Gemini API key is connected (no real key available for testing).
 
 # Catalog builder
-- [ ] Add the business form and structured Gemini generation.
-- [ ] Add gap analysis, service and product tabs with CSV, Markdown, and clipboard exports.
-- [ ] Test validation and exports; verify the full flow with simulated Google responses.
+- [x] Add the business form and structured Gemini generation.
+- [x] Add gap analysis, service and product tabs with CSV, Markdown, and clipboard exports.
+- [x] Test validation and exports; verify the full flow with simulated Google responses.
 - [ ] Verify live catalog generation once a valid Gemini API key is connected (no real key available for testing).
