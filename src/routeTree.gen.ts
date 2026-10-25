@@ -10,33 +10,89 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToolsCatalogBuilderRouteImport } from './routes/tools/catalog-builder'
+import { Route as ToolsGbpCalendarRouteImport } from './routes/tools/gbp-calendar'
+import { Route as ToolsReviewResponderRouteImport } from './routes/tools/review-responder'
+import { Route as ToolsYoastMetaGeneratorRouteImport } from './routes/tools/yoast-meta-generator'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsCatalogBuilderRoute = ToolsCatalogBuilderRouteImport.update({
+  id: '/tools/catalog-builder',
+  path: '/tools/catalog-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsGbpCalendarRoute = ToolsGbpCalendarRouteImport.update({
+  id: '/tools/gbp-calendar',
+  path: '/tools/gbp-calendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsReviewResponderRoute = ToolsReviewResponderRouteImport.update({
+  id: '/tools/review-responder',
+  path: '/tools/review-responder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsYoastMetaGeneratorRoute = ToolsYoastMetaGeneratorRouteImport.update({
+  id: '/tools/yoast-meta-generator',
+  path: '/tools/yoast-meta-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/tools/catalog-builder': typeof ToolsCatalogBuilderRoute
+  '/tools/gbp-calendar': typeof ToolsGbpCalendarRoute
+  '/tools/review-responder': typeof ToolsReviewResponderRoute
+  '/tools/yoast-meta-generator': typeof ToolsYoastMetaGeneratorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/tools/catalog-builder': typeof ToolsCatalogBuilderRoute
+  '/tools/gbp-calendar': typeof ToolsGbpCalendarRoute
+  '/tools/review-responder': typeof ToolsReviewResponderRoute
+  '/tools/yoast-meta-generator': typeof ToolsYoastMetaGeneratorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/tools/catalog-builder': typeof ToolsCatalogBuilderRoute
+  '/tools/gbp-calendar': typeof ToolsGbpCalendarRoute
+  '/tools/review-responder': typeof ToolsReviewResponderRoute
+  '/tools/yoast-meta-generator': typeof ToolsYoastMetaGeneratorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/tools/catalog-builder'
+    | '/tools/gbp-calendar'
+    | '/tools/review-responder'
+    | '/tools/yoast-meta-generator'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/tools/catalog-builder'
+    | '/tools/gbp-calendar'
+    | '/tools/review-responder'
+    | '/tools/yoast-meta-generator'
+  id:
+    | '__root__'
+    | '/'
+    | '/tools/catalog-builder'
+    | '/tools/gbp-calendar'
+    | '/tools/review-responder'
+    | '/tools/yoast-meta-generator'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ToolsCatalogBuilderRoute: typeof ToolsCatalogBuilderRoute
+  ToolsGbpCalendarRoute: typeof ToolsGbpCalendarRoute
+  ToolsReviewResponderRoute: typeof ToolsReviewResponderRoute
+  ToolsYoastMetaGeneratorRoute: typeof ToolsYoastMetaGeneratorRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +104,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/catalog-builder': {
+      id: '/tools/catalog-builder'
+      path: '/tools/catalog-builder'
+      fullPath: '/tools/catalog-builder'
+      preLoaderRoute: typeof ToolsCatalogBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/gbp-calendar': {
+      id: '/tools/gbp-calendar'
+      path: '/tools/gbp-calendar'
+      fullPath: '/tools/gbp-calendar'
+      preLoaderRoute: typeof ToolsGbpCalendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/review-responder': {
+      id: '/tools/review-responder'
+      path: '/tools/review-responder'
+      fullPath: '/tools/review-responder'
+      preLoaderRoute: typeof ToolsReviewResponderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/yoast-meta-generator': {
+      id: '/tools/yoast-meta-generator'
+      path: '/tools/yoast-meta-generator'
+      fullPath: '/tools/yoast-meta-generator'
+      preLoaderRoute: typeof ToolsYoastMetaGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ToolsCatalogBuilderRoute: ToolsCatalogBuilderRoute,
+  ToolsGbpCalendarRoute: ToolsGbpCalendarRoute,
+  ToolsReviewResponderRoute: ToolsReviewResponderRoute,
+  ToolsYoastMetaGeneratorRoute: ToolsYoastMetaGeneratorRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
