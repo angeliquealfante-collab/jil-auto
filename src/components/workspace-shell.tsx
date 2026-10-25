@@ -4,6 +4,7 @@ import { ArrowLeft, KeyRound, LayoutDashboard, PanelLeftClose, PanelLeftOpen, Sp
 import { Button } from "@/components/ui/button";
 import { ApiKeyDialog } from "@/components/api-key-dialog";
 import { workspaceTools } from "@/lib/workspace-tools";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function WorkspaceShell({ children }: { children: ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -27,7 +28,7 @@ export function WorkspaceShell({ children }: { children: ReactNode }) {
     <div className="min-w-0 flex-1">
       <header className="flex min-h-20 items-center justify-between gap-3 border-b border-border px-4 md:px-8">
         <div className="flex min-w-0 items-center gap-3"><Button variant="ghost" size="icon" className="hidden md:inline-flex" aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"} title={collapsed ? "Expand sidebar" : "Collapse sidebar"} onClick={() => setCollapsed(!collapsed)}>{collapsed ? <PanelLeftOpen /> : <PanelLeftClose />}</Button><span className="truncate text-sm text-muted-foreground">Workspace <span className="mx-2">/</span><span className="text-foreground">{current?.label ?? "Overview"}</span></span></div>
-        <Button variant="outline" size="sm" onClick={() => setKeyOpen(true)}><KeyRound /> <span className="hidden sm:inline">API Key</span></Button>
+        <div className="flex shrink-0 items-center gap-2"><ThemeToggle /><Button variant="outline" size="sm" onClick={() => setKeyOpen(true)}><KeyRound /> <span className="hidden sm:inline">API Key</span></Button></div>
       </header>
       <main className="mx-auto max-w-7xl px-5 py-8 md:px-10 md:py-10">{children}</main>
       <footer className="flex items-center gap-2 px-5 pb-6 text-xs text-muted-foreground md:px-10"><Sparkles className="h-3 w-3 text-primary-glow" /> JIL Agency Workspace</footer>
