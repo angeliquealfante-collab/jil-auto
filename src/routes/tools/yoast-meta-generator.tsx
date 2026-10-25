@@ -9,13 +9,15 @@ export const Route = createFileRoute("/tools/yoast-meta-generator")({
       { name: "description", content: "Generate SEO titles and meta descriptions, ready to paste into Yoast." },
       { property: "og:title", content: "Yoast Meta Generator — JIL" },
       { property: "og:description", content: "Generate SEO titles and meta descriptions, ready to paste into Yoast." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => (
     <ToolPage
       icon={FileText}
-      title="Yoast Meta Generator"
-      tagline="Coming soon"
+      title="SEO Meta Description & Title Engine"
+      tagline="Module 01 · Yoast Optimized · Coming soon"
       description="Generate SEO titles and meta descriptions that fit Yoast's length limits, page by page or in bulk."
       upcoming={[
         "Paste a page URL or content and get title + description drafts instantly",

@@ -10,14 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WorkspaceRouteImport } from './routes/workspace'
 import { Route as ToolsCatalogBuilderRouteImport } from './routes/tools/catalog-builder'
 import { Route as ToolsGbpCalendarRouteImport } from './routes/tools/gbp-calendar'
+import { Route as ToolsPromptVaultRouteImport } from './routes/tools/prompt-vault'
 import { Route as ToolsReviewResponderRouteImport } from './routes/tools/review-responder'
 import { Route as ToolsYoastMetaGeneratorRouteImport } from './routes/tools/yoast-meta-generator'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkspaceRoute = WorkspaceRouteImport.update({
+  id: '/workspace',
+  path: '/workspace',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsCatalogBuilderRoute = ToolsCatalogBuilderRouteImport.update({
@@ -28,6 +35,11 @@ const ToolsCatalogBuilderRoute = ToolsCatalogBuilderRouteImport.update({
 const ToolsGbpCalendarRoute = ToolsGbpCalendarRouteImport.update({
   id: '/tools/gbp-calendar',
   path: '/tools/gbp-calendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsPromptVaultRoute = ToolsPromptVaultRouteImport.update({
+  id: '/tools/prompt-vault',
+  path: '/tools/prompt-vault',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsReviewResponderRoute = ToolsReviewResponderRouteImport.update({
@@ -43,23 +55,29 @@ const ToolsYoastMetaGeneratorRoute = ToolsYoastMetaGeneratorRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/workspace': typeof WorkspaceRoute
   '/tools/catalog-builder': typeof ToolsCatalogBuilderRoute
   '/tools/gbp-calendar': typeof ToolsGbpCalendarRoute
+  '/tools/prompt-vault': typeof ToolsPromptVaultRoute
   '/tools/review-responder': typeof ToolsReviewResponderRoute
   '/tools/yoast-meta-generator': typeof ToolsYoastMetaGeneratorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/workspace': typeof WorkspaceRoute
   '/tools/catalog-builder': typeof ToolsCatalogBuilderRoute
   '/tools/gbp-calendar': typeof ToolsGbpCalendarRoute
+  '/tools/prompt-vault': typeof ToolsPromptVaultRoute
   '/tools/review-responder': typeof ToolsReviewResponderRoute
   '/tools/yoast-meta-generator': typeof ToolsYoastMetaGeneratorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/workspace': typeof WorkspaceRoute
   '/tools/catalog-builder': typeof ToolsCatalogBuilderRoute
   '/tools/gbp-calendar': typeof ToolsGbpCalendarRoute
+  '/tools/prompt-vault': typeof ToolsPromptVaultRoute
   '/tools/review-responder': typeof ToolsReviewResponderRoute
   '/tools/yoast-meta-generator': typeof ToolsYoastMetaGeneratorRoute
 }
@@ -67,30 +85,38 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/workspace'
     | '/tools/catalog-builder'
     | '/tools/gbp-calendar'
+    | '/tools/prompt-vault'
     | '/tools/review-responder'
     | '/tools/yoast-meta-generator'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/workspace'
     | '/tools/catalog-builder'
     | '/tools/gbp-calendar'
+    | '/tools/prompt-vault'
     | '/tools/review-responder'
     | '/tools/yoast-meta-generator'
   id:
     | '__root__'
     | '/'
+    | '/workspace'
     | '/tools/catalog-builder'
     | '/tools/gbp-calendar'
+    | '/tools/prompt-vault'
     | '/tools/review-responder'
     | '/tools/yoast-meta-generator'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  WorkspaceRoute: typeof WorkspaceRoute
   ToolsCatalogBuilderRoute: typeof ToolsCatalogBuilderRoute
   ToolsGbpCalendarRoute: typeof ToolsGbpCalendarRoute
+  ToolsPromptVaultRoute: typeof ToolsPromptVaultRoute
   ToolsReviewResponderRoute: typeof ToolsReviewResponderRoute
   ToolsYoastMetaGeneratorRoute: typeof ToolsYoastMetaGeneratorRoute
 }
@@ -102,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/workspace': {
+      id: '/workspace'
+      path: '/workspace'
+      fullPath: '/workspace'
+      preLoaderRoute: typeof WorkspaceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/catalog-builder': {
@@ -116,6 +149,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/gbp-calendar'
       fullPath: '/tools/gbp-calendar'
       preLoaderRoute: typeof ToolsGbpCalendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/prompt-vault': {
+      id: '/tools/prompt-vault'
+      path: '/tools/prompt-vault'
+      fullPath: '/tools/prompt-vault'
+      preLoaderRoute: typeof ToolsPromptVaultRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/review-responder': {
@@ -137,8 +177,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  WorkspaceRoute: WorkspaceRoute,
   ToolsCatalogBuilderRoute: ToolsCatalogBuilderRoute,
   ToolsGbpCalendarRoute: ToolsGbpCalendarRoute,
+  ToolsPromptVaultRoute: ToolsPromptVaultRoute,
   ToolsReviewResponderRoute: ToolsReviewResponderRoute,
   ToolsYoastMetaGeneratorRoute: ToolsYoastMetaGeneratorRoute,
 }
