@@ -19,3 +19,9 @@
 - [x] Add gap analysis, service and product tabs with CSV, Markdown, and clipboard exports.
 - [x] Test validation and exports; verify the full flow with simulated Google responses.
 - [ ] Verify live catalog generation once a valid Gemini API key is connected (no real key available for testing).
+
+# Content calendar
+- [x] Add inputs and twelve-week generation with deterministic Monday scheduling.
+- [x] Add editable table, CSV export, and full-calendar copying.
+- [x] Test rotation, dates, post lengths and exports; verify with simulated Google responses.
+- [ ] Verify live calendar generation once a valid Gemini API key is connected (no real key available for testing).
