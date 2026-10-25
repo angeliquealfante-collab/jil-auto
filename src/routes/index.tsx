@@ -4,6 +4,7 @@ import { ArrowRight, KeyRound, FileText, MessageSquareReply, LayoutGrid, Calenda
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Dialog,
   DialogContent,
@@ -71,9 +72,9 @@ function Index() {
         <span className="text-xl font-bold tracking-tight">
           JIL<span className="text-primary">.</span>
         </span>
-        <Button variant="outline" size="sm" className="glass" onClick={() => setOpen(true)}>
+        <div className="flex items-center gap-2"><ThemeToggle /><Button variant="outline" size="sm" className="glass" onClick={() => setOpen(true)}>
           <KeyRound /> API Key
-        </Button>
+        </Button></div>
       </header>
 
       <main className="mx-auto max-w-6xl px-6">
