@@ -14,3 +14,4 @@
 - Share theme state through a root-level provider and semantic CSS tokens; restore the browser preference after hydration so every page stays consistent without SSR mismatches.
 - Keep the personal-key SEO generator browser-initiated and send its key only to Google's API in a header; validate structured responses and share pure character rules with tests.
 - Reuse the browser-initiated Gemini request helper for personal-key tools so the Google endpoint, key header, timeouts, and safe error messages stay consistent.
+- Keep catalog validation and export serializers in a browser-safe module separate from the form; mark ungounded gap suggestions as unverified and neutralize CSV formulas so generated data remains safe to export.
