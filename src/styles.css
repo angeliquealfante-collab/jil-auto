@@ -35,6 +35,8 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-glow: var(--primary-glow);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -64,6 +66,8 @@
 
 :root {
   --radius: 0.875rem;
+  --success: oklch(0.47 0.14 150);
+  --warning: oklch(0.55 0.14 75);
   --background: oklch(0.985 0.002 286);
   --foreground: oklch(0.21 0.015 286);
   --card: oklch(1 0 0 / 85%);
@@ -102,6 +106,8 @@
 }
 
 .dark {
+  --success: oklch(0.75 0.18 150);
+  --warning: oklch(0.8 0.16 80);
   --background: oklch(0.141 0.005 285.8);
   --foreground: oklch(0.97 0.005 286);
   --card: oklch(0.21 0.01 286 / 45%);
