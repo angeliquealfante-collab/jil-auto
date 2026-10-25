@@ -25,3 +25,9 @@
 - [x] Add editable table, CSV export, and full-calendar copying.
 - [x] Test rotation, dates, post lengths and exports; verify with simulated Google responses.
 - [ ] Verify live calendar generation once a valid Gemini API key is connected (no real key available for testing).
+
+# Prompt vault & global controls
+- [ ] Add searchable, tag-filtered prompt library with exact supplied frameworks and browser-only custom saving.
+- [ ] Add prompt creation, editing, Quick Copy and text/JSON/CSV exports across tools.
+- [ ] Add missing-key/API failure toasts and guard key-popup storage errors.
+- [ ] Test filtering, persistence, exports, and shared errors; verify the user flows.

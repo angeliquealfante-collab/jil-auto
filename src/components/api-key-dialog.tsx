@@ -7,11 +7,16 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 export function ApiKeyDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
   const [key, setKey] = useState("");
   useEffect(() => {
-    if (open) setKey(localStorage.getItem("jil_gemini_api_key") ?? "");
+    if (open) {
+      try { setKey(localStorage.getItem("jil_gemini_api_key") ?? ""); }
+      catch { setKey(""); toast.error("Browser storage is unavailable. Your saved key could not be loaded."); }
+    }
   }, [open]);
   function save() {
-    if (key.trim()) localStorage.setItem("jil_gemini_api_key", key.trim());
-    else localStorage.removeItem("jil_gemini_api_key");
+    try {
+      if (key.trim()) localStorage.setItem("jil_gemini_api_key", key.trim());
+      else localStorage.removeItem("jil_gemini_api_key");
+    } catch { toast.error("Couldn't save your key. Enable browser storage and try again."); return; }
     toast.success(key.trim() ? "API key saved" : "API key cleared");
     onOpenChange(false);
   }
